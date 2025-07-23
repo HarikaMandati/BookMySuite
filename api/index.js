@@ -22,16 +22,12 @@ mongoose.connection.on("disconnected", () =>{
     console.log("mongoDB disconnected!")
 })
 
-mongoose.connection.on("connected", () =>{
-    console.log("mongoDB connected!")
-})
-
-app.get("/", (req,res) => {
-    res.send("hello first request");
-})
 
 
 //middleware 
+
+app.use(express.json())
+
 app.use("/api/auth",authRoute);
 app.use("/api/hotel",hotelRoute);
 app.use("/api/room",roomRoute);
