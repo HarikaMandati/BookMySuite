@@ -26,14 +26,16 @@ mongoose.connection.on("disconnected", () =>{
 
 //middleware 
 
-app.use(express.json())
+app.use(express.json());
 
 app.use("/api/auth",authRoute);
-app.use("/api/hotel",hotelRoute);
+app.use("/api/hotels",hotelRoute);
 app.use("/api/room",roomRoute);
 app.use("/api/user",userRoute);
 
-app.listen(8800,()=>{
+const PORT = 8800;
+
+app.listen(PORT,()=>{
     connect()
-    console.log("Connected to backend.")
+    console.log("Connected to backend.", PORT)
 });
