@@ -12,7 +12,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
-
+console.log("hotelId ",hotelId);
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -58,6 +58,8 @@ const Reserve = ({ setOpen, hotelId }) => {
           const res = axios.put(`/rooms/availability/${roomId}`, {
             dates: alldates,
           });
+          console.log("roomId ",roomId);
+
           return res.data;
         })
       );
