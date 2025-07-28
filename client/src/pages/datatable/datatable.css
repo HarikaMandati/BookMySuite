@@ -1,0 +1,120 @@
+
+.booking-table-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-table-container .ant-table {
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .booking-table-container .ant-table-thead > tr > th {
+    background-color: #1890ff;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .booking-table-container .ant-table-tbody > tr:hover > td {
+    background-color: #e6f7ff !important;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-buttons .ant-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+  }
+  
+  .action-buttons .ant-btn-text:not(:hover) {
+    color: rgba(0, 0, 0, 0.45);
+  }
+  
+  .booking-details {
+    padding: 10px;
+  }
+  
+  .booking-details p {
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .booking-details strong {
+    display: inline-block;
+    width: 120px;
+    color: #555;
+  }
+  
+  .booking-table-container .ant-spin-container {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .booking-table-container .ant-pagination {
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .booking-table-container {
+      padding: 10px;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .booking-details p {
+      font-size: 14px;
+    }
+    
+    .booking-details strong {
+      width: 100px;
+    }
+  }
+  
+  /* Custom scrollbar for table */
+  .booking-table-container .ant-table-body::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .booking-table-container .ant-table-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .booking-table-container .ant-table-body::-webkit-scrollbar-thumb {
+    background: #1890ff;
+    border-radius: 4px;
+  }
+  
+  .action-buttons .ant-btn:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .ant-modal-title {
+    color: #1890ff;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  
+  .ant-modal-footer .ant-btn {
+    border-radius: 4px;
+    padding: 6px 16px;
+  }
+  
+  .booking-table-container .ant-table-tbody > tr:nth-child(even) {
+    background-color: #fafafa;
+  }
