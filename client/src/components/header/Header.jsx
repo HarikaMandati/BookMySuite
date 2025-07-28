@@ -54,6 +54,16 @@ import {
       navigate("/hotels", { state: { destination, dates, options } });
     };
   
+
+    const handleMyBookingsClick = () => {
+      if (user) {
+        navigate('/my-bookings'); 
+      } else {
+        navigate('/login', { state: { from: '/my-bookings' } });
+        
+      }
+    };
+  
     return (
       <div className="header">
         <div
@@ -78,10 +88,14 @@ import {
               <FontAwesomeIcon icon={faBed} />
               <span>Attractions</span>
             </div>
-            <div className="headerListItem">
-              <FontAwesomeIcon icon={faTaxi} />
-              <span>Airport taxis</span>
-            </div>
+            <div 
+        className="headerListItem" 
+        onClick={handleMyBookingsClick}
+        style={{ cursor: 'pointer' }}
+      >
+        <FontAwesomeIcon icon={faTaxi} />
+        <span>MyBookings</span>
+      </div>
           </div>
           {type !== "list" && (
             <>

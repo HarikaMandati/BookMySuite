@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
@@ -50,23 +51,66 @@ console.log("hotelId ",hotelId);
   };
 
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
 
   const handleClick = async () => {
     try {
+      // First update room availability
       await Promise.all(
         selectedRooms.map((roomId) => {
-          const res = axios.put(`/rooms/availability/${roomId}`, {
+          return axios.put(`/rooms/availability/${roomId}`, {
             dates: alldates,
           });
-          console.log("roomId ",roomId);
-
-          return res.data;
         })
       );
+  
+      // Then create booking for each selected room
+      await Promise.all(
+        selectedRooms.map(async (roomId) => {
+          const room = data.find(item => 
+            item.roomNumbers.some(rn => rn._id === roomId)
+          );
+          
+          if (room) {
+            const bookingData = {
+              userid: user._id, 
+              hotelid: hotelId,
+              roomid: roomId,
+              bookingdate: new Date().toISOString(),
+              bookingdays: alldates.length,
+              rooms: selectedRooms,
+              cheapestPrice: room.price * alldates.length
+            };
+            
+            await axios.post("/bookings", bookingData);
+          }
+        })
+      );
+  
       setOpen(false);
       navigate("/");
-    } catch (err) {}
+    } catch (err) {
+      console.error("Booking failed:", err);
+      // Handle error (show message to user, etc.)
+    }
   };
+  // const handleClick = async () => {
+  //   try {
+  //     await Promise.all(
+  //       selectedRooms.map((roomId) => {
+  //         const res = axios.put(`/rooms/availability/${roomId}`, {
+  //           dates: alldates,
+  //         });
+  //         console.log("roomId ",roomId);
+
+  //         return res.data;
+  //       })
+  //     );
+  //     setOpen(false);
+  //     navigate("/");
+  //   } catch (err) {}
+  // };
   return (
     <div className="reserve">
       <div className="rContainer">
