@@ -29,11 +29,9 @@ const Navbar = () => {
         )} */}
         {user ? (
           <div className="navItems">
-            <button className="navButton" onClick={handleLogout}>Logout</button>
-            {/* You might also want to show the username */}
-            <span className="username">{user.username}</span>
-          </div>
-        ) : (
+          <span className="username" style={{ marginRight: '15px' }}>{user.username}</span>
+          <button className="navButton" onClick={handleLogout}>Logout</button>
+          </div>        ) : (
           <div className="navItems">
             {/* <button className="navButton">Register</button> */}
             <button 

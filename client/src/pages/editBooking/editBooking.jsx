@@ -137,16 +137,6 @@ const BookingPopup = ({ booking: propBooking, mode: propMode, onClose: propOnClo
           ) : (
             <form onSubmit={handleSubmit} className="edit-form">
               <div className="form-group">
-                <label>Booking Date</label>
-                <input
-                  type="datetime-local"
-                  name="bookingdate"
-                  value={editData.bookingdate}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
                 <label>Duration (Days)</label>
                 <input
                   type="number"

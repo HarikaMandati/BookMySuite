@@ -4,6 +4,8 @@ import axios from 'axios';
 import { Table, Button, Modal, message } from 'antd';
 import { EyeOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { AuthContext } from '../../context/AuthContext';
+import { HomeOutlined } from '@ant-design/icons'; 
+
 const BookingTable = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -102,6 +104,17 @@ const BookingTable = () => {
 
   return (
     <div className="booking-table-container">
+
+
+<Button 
+      type="primary" 
+      icon={<HomeOutlined />}
+      onClick={() => navigate('/')}
+      style={{ marginBottom: 16 }}
+    >
+      Back to Home
+    </Button>
+
       <Table 
         columns={columns} 
         dataSource={bookings} 
@@ -123,11 +136,11 @@ const BookingTable = () => {
       >
         {selectedBooking && (
           <div className="booking-details">
-            <p><strong>Booking ID:</strong> {selectedBookingIndex + 1}</p>
+            {/* <p><strong>Booking ID:</strong> {selectedBookingIndex + 1}</p> */}
             <p><strong>Booking Date:</strong> {new Date(selectedBooking.bookingdate).toLocaleString()}</p>
             <p><strong>Duration:</strong> {selectedBooking.bookingdays} days</p>
             <p><strong>Price:</strong> ${selectedBooking.cheapestPrice}</p>
-            <p><strong>Rooms:</strong> {selectedBooking.rooms.join(', ')}</p>
+            <p><strong>Rooms:</strong> HoneyMoon Suite</p>
           </div>
         )}
       </Modal>

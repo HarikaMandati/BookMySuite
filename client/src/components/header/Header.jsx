@@ -2,6 +2,7 @@ import {
     faBed,
     faCalendarDays,
     faCar,
+    faHotel,
     faPerson,
     faPlane,
     faTaxi,
@@ -93,7 +94,7 @@ import {
         onClick={handleMyBookingsClick}
         style={{ cursor: 'pointer' }}
       >
-        <FontAwesomeIcon icon={faTaxi} />
+        <FontAwesomeIcon icon={faHotel} />
         <span>MyBookings</span>
       </div>
           </div>
