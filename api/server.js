@@ -30,8 +30,8 @@ app.use(express.json());
 
 app.use("/api/auth",authRoute);
 app.use("/api/hotels",hotelRoute);
-app.use("/api/room",roomRoute);
-app.use("/api/user",userRoute);
+app.use("/api/rooms",roomRoute);
+app.use("/api/users",userRoute);
 
 const PORT = 8800;
 
