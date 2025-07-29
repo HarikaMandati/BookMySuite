@@ -30,7 +30,7 @@ export const getBookingsByUserId = async (req, res, next) => {
       const bookings = await Booking.find({ userid: userId });
       
       if (!bookings || bookings.length === 0) {
-        return res.status(405).json("No bookings found for this user");
+        return res.status(404).json("No bookings found for this user");
       }
       res.status(200).json(bookings);
     } catch (err) {
@@ -38,10 +38,12 @@ export const getBookingsByUserId = async (req, res, next) => {
     }
   };
   export const getBookingsById = async (req, res, next) => {
-    console.log(req.params.id)
     try {
       const bookings = await Booking.find({ _id: req.params.id });
-      
+      if (!bookings || bookings.length === 0) {
+        return res.status(404).json("No bookings found for this id");
+      }
+
       res.status(200).json(bookings);
     } catch (err) {
       next(err);
