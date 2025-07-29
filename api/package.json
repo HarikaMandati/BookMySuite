@@ -8,8 +8,14 @@
     "client": "npm start --prefix ../client",
     "admin": "npm start --prefix ../admin",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-     "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
+  "jest": {
+    "transform": {},
+    "testEnvironment": "node"
+  },
+  "type": "module"
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
