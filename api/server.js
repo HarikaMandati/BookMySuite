@@ -6,6 +6,7 @@ import hotelRoute from "./routes/hotels.js"
 import roomRoute from "./routes/rooms.js"
 import userRoute from "./routes/users.js"
 import bookingRoute from "./routes/booking.js"
+
 const app = express()
 dotenv.config()
 
@@ -41,3 +42,5 @@ app.listen(PORT,()=>{
     connect()
     console.log("Connected to backend.", PORT)
 });
+
+export default app;
