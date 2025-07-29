@@ -1,4 +1,4 @@
-BookMySuite
+BookMySuite - hotel booking application
 
 A user-centric hotel booking application that allows guests to search, book, and manage their hotel reservations with CRUD (Create, Read, Update, Delete) functionality.
 
