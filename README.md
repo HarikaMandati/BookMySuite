@@ -4,7 +4,7 @@ A user-centric hotel booking application that allows guests to search, book, and
 
 ✨ Key Features
 
-User Authentication Sign Up / Login with email & password
+User Authentication Sign Up / Login with username & password
 Protected routes (only logged-in users can book hotels)
 
 Hotel Search & Filtering Search hotels by:
